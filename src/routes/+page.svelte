@@ -142,7 +142,9 @@
 		let cases: { when: string; model: { type: string; model: string } }[] = [];
 
 		for (const profile of data.data) {
-			const image = await fetch(profile.MinecraftSkinData.skinUrl);
+			const image = await fetch(
+				`/api/get-skin/${profile.MinecraftSkinData.skinUrl.split('texture/')[1]}`
+			);
 			const imageBlob = await image.blob();
 			texturesFolder.file(`${profile.MinecraftUsername}.png`, imageBlob);
 			const { height } = await getImageDimensions(imageBlob);
