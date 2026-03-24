@@ -67,7 +67,7 @@
 			class="flex items-center justify-center gap-4 text-sm font-medium text-gray-600 dark:text-gray-400"
 		>
 			<a
-				href="https://github.com/your-username"
+				href="https://github.com/lukasabbe"
 				target="_blank"
 				class="hover:text-blue-600 dark:hover:text-blue-400"
 			>
@@ -75,7 +75,7 @@
 			</a>
 			<span>&bull;</span>
 			<a
-				href="https://yourwebsite.com"
+				href="https://lukasabbe.com"
 				target="_blank"
 				class="hover:text-blue-600 dark:hover:text-blue-400"
 			>
@@ -83,7 +83,7 @@
 			</a>
 		</div>
 		<p class="mt-2 text-xs text-gray-500 dark:text-gray-500">
-			&copy; {new Date().getFullYear()} Lukasabbe. All rights reserved.
+			&copy; {new Date().getFullYear()} Lukas HB. All rights reserved.
 		</p>
 	</footer>
 </div>
