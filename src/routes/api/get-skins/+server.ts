@@ -42,7 +42,6 @@ function chunkArray<T>(list: T[]): T[][] {
 	const chunkedList: T[][] = [];
 
 	for (let i = 0; i < list.length; i += chunkSize) {
-		// .slice() automatically handles cases where there are fewer than 10 elements left
 		chunkedList.push(list.slice(i, i + chunkSize));
 	}
 

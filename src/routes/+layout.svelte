@@ -71,7 +71,7 @@
 				target="_blank"
 				class="hover:text-blue-600 dark:hover:text-blue-400"
 			>
-				GitHub
+				My GitHub
 			</a>
 			<span>&bull;</span>
 			<a
@@ -80,6 +80,14 @@
 				class="hover:text-blue-600 dark:hover:text-blue-400"
 			>
 				My Website
+			</a>
+			<span>&bull;</span>
+			<a
+				href="https://github.com/lukasabbe/skin-pack-website"
+				target="_blank"
+				class="hover:text-blue-600 dark:hover:text-blue-400"
+			>
+				GitHub Repo
 			</a>
 		</div>
 		<p class="mt-2 text-xs text-gray-500 dark:text-gray-500">

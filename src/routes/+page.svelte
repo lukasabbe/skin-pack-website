@@ -141,6 +141,13 @@
 
 		let cases: { when: string; model: { type: string; model: string } }[] = [];
 
+		const oldModel = await fetch('/old.json');
+		const oldModelJson = await oldModel.json();
+		const slimModel = await fetch('/slim.json');
+		const slimModelJson = await slimModel.json();
+		const normalModel = await fetch('/normal.json');
+		const normalModelJson = await normalModel.json();
+
 		for (const profile of data.data) {
 			const image = await fetch(
 				`/api/get-skin/${profile.MinecraftSkinData.skinUrl.split('texture/')[1]}`
@@ -149,17 +156,15 @@
 			texturesFolder.file(`${profile.MinecraftUsername}.png`, imageBlob);
 			const { height } = await getImageDimensions(imageBlob);
 
-			let modelRes;
+			let model;
 
 			if (height == 32) {
-				modelRes = await fetch('/old.json');
+				model = oldModelJson;
 			} else if (profile.MinecraftSkinData.model == 'SLIM') {
-				modelRes = await fetch('/slim.json');
+				model = slimModelJson;
 			} else if (profile.MinecraftSkinData.model == 'CLASSIC') {
-				modelRes = await fetch('/normal.json');
+				model = normalModelJson;
 			} else return;
-
-			const model = await modelRes.json();
 
 			model.textures['0'] = `trusted_skin_pack:item/${profile.MinecraftUsername}`;
 			model.textures.particle = `trusted_skin_pack:item/${profile.MinecraftUsername}`;
@@ -199,18 +204,21 @@
 		<div class="flex flex-col gap-6">
 			<div class="space-y-3 text-sm text-gray-600 dark:text-gray-300">
 				<p>
-					Welcome to the Minecraft Skin Pack Generator! This tool allows you generate a resource
-					pack with dynamic skins.
+					<bold>Welcome to the Minecraft Skin Pack Generator!</bold>
+					This tool allows you to generate a resource pack with dynamic skins.
 				</p>
 				<p>
 					Simply type in the usernames of the players below, press Space or Enter to add them, and
-					click "Download Pack".
+					click "Download Pack."
 				</p>
 				<h2 class="text-m font-bold text-gray-800 dark:text-white">How to use</h2>
 				<ul>
-					<li>1. Put the zip file in your Minecraft resource packs folder.</li>
-					<li>2. Rename a carved pumkin to a skin you inputed when you generated the pack.</li>
-					<li>3. The pumkin will get the model of the skin you inputed.</li>
+					<li>1. Put the .zip file into your Minecraft resource packs folder.</li>
+					<li>
+						2. In-game, rename a carved pumpkin to a username you entered when you generated the
+						pack.
+					</li>
+					<li>3. The pumpkin will take on the model of the skin you entered.</li>
 				</ul>
 			</div>
 
